@@ -69,6 +69,7 @@ public class AlterarContato extends HttpServlet {
         contato.setNome(nome);
         contato.setDtNascimento(date);
         contato.setTelefone(telefone);
+        contato.setEmail(email);
         contato.setSexo(sexo);
         
         ConexaoBD conn = new ConexaoBD();

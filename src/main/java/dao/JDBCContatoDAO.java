@@ -45,30 +45,24 @@ public class JDBCContatoDAO implements ContatoDAO{
     
     public void alterar(Contato contato) {
         
-        String sql = "UPDATE TB_CONTATO "
-            + " SET ID_CONTATO = ?, "
-            + " NM_CONTATO = ?, "
-            + " DT_NASCIMENTO = ?,"
-            + " VL_TELEFONE = ?, "
-            + " VL_EMAIL = ?, "
-            + " VL_SEXO = ? "
-            + "WHERE ID_CONTATO = ?";
-        
-        PreparedStatement stmt;
         try {
-            stmt = conexao.prepareStatement(sql);
-            stmt.setLong(1, contato.getId());
-            stmt.setString(1, contato.getNome());
-            stmt.setDate(2, new java.sql.Date(contato.getDtNascimento().getTime()));
-            stmt.setString(3, contato.getTelefone());
-            stmt.setString(4, contato.getEmail());
-            stmt.setString(5, contato.getSexo());
+            String sql = "UPDATE TB_CONTATO "
+                + " SET NM_CONTATO = ?, DT_NASCIMENTO = ?, VL_TELEFONE = ?, "
+                + " VL_EMAIL = ?, VL_SEXO = ? WHERE ID_CONTATO = ?";
+
+            PreparedStatement p;            
+            p = this.conexao.prepareStatement(sql);
+            p.setString(1, contato.getNome());
+            p.setDate(2, new java.sql.Date(contato.getDtNascimento().getTime()));
+            p.setString(3, contato.getTelefone());
+            p.setString(4, contato.getEmail());
+            p.setString(5, contato.getSexo());
+            p.setString(6, Long.toString(contato.getId()));
             
-            stmt.execute();
-            stmt.close();
+            p.execute();
             
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            Logger.getLogger(JDBCContatoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }    

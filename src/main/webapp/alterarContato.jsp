@@ -19,11 +19,23 @@
             Nome: <input type="text" name="nome" value="${nome}"/><br />
             Data Nascimento: <input type="text" name="nascimento" value="${nascimento}"/><br /> 
             E-mail: <input type="text" name="email" value="${email}"<br />
-            Sexo: 
-                <Select name = "sexo" value="${sexo}">
-                    <option value="1" >Masculino</option>
-                    <option value="2">Feminino</option>
-                </Select><br/>
+            Sexo:         
+                <Select name="sexo" id="sexo" value="${sexo}".attr("selected",true)>
+                    <option value="Masculino" >Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </Select> 
+            
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                      // valor que desejo localizar
+                      var value = trim("${sexo}");
+
+                      // Usa-se o método $.find para buscar a
+                      // opção pelo atributo value e o seleciona
+                      $('#sexo').find('[value="' + value + '"]').attr('selected', true);
+                </script>
+                <br/>
+                
             Telefone: <input type="text" name="telefone" value="${telefone}"/><br />
 
             <input type="submit" value="Gravar"/>
