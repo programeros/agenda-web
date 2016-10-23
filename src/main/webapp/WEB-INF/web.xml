@@ -11,6 +11,10 @@
         <servlet-name>ExcluirContato</servlet-name>
         <servlet-class>action.ExcluirContato</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarContato</servlet-name>
+        <servlet-class>action.AlterarContato</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdicionarContato</servlet-name>
         <url-pattern>/AdicionarContato</url-pattern>
@@ -18,6 +22,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirContato</servlet-name>
         <url-pattern>/ExcluirContato</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarContato</servlet-name>
+        <url-pattern>/AlterarContato</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

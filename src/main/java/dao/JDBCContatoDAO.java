@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -41,6 +42,37 @@ public class JDBCContatoDAO implements ContatoDAO{
         }
         
     }
+    
+    public void alterar(Contato contato) {
+        
+        String sql = "UPDATE TB_CONTATO "
+            + " SET ID_CONTATO = ?, "
+            + " NM_CONTATO = ?, "
+            + " DT_NASCIMENTO = ?,"
+            + " VL_TELEFONE = ?, "
+            + " VL_EMAIL = ?, "
+            + " VL_SEXO = ? "
+            + "WHERE ID_CONTATO = ?";
+        
+        PreparedStatement stmt;
+        try {
+            stmt = conexao.prepareStatement(sql);
+            stmt.setLong(1, contato.getId());
+            stmt.setString(1, contato.getNome());
+            stmt.setDate(2, new java.sql.Date(contato.getDtNascimento().getTime()));
+            stmt.setString(3, contato.getTelefone());
+            stmt.setString(4, contato.getEmail());
+            stmt.setString(5, contato.getSexo());
+            
+            stmt.execute();
+            stmt.close();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+    }    
+    
     @Override
     public List<Contato> listarContatos() {
 
@@ -86,6 +118,32 @@ public class JDBCContatoDAO implements ContatoDAO{
         
         return contatos;
     }
+    
+   public Contato selecionar(Long id){
+       
+        Contato contato = new Contato();
+        ConexaoBD conn = new ConexaoBD();
+       
+        String sql = "SELECT * FROM TB_CONTATO WHERE ID_CONTATO= "+id;
+        
+        try{
+            Statement stmt = (Statement) conn.obterConexao().createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+                contato.setId(id);
+                contato.setNome(rs.getString("NM_CONTATO"));
+                contato.setDtNascimento(rs.getDate("DT_NASCIMENTO"));
+                contato.setEmail(rs.getString("VL_EMAIL"));
+                contato.setTelefone(rs.getString("VL_TELEFONE"));
+                contato.setSexo(rs.getString("VL_SEXO")); 
+                contato.setDtCadastro(rs.getDate("DT_CADASTRO"));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return contato;
+
+    }       
     
     public Contato Remove(Long id){
 

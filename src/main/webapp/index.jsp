@@ -51,6 +51,10 @@
                 <td><%= c.getTelefone() %></td>
                 <td><%= stCadastro %></td>  
                 <td> <a href="ExcluirContato?id=<%=c.getId() %>">Excluir</a></td>
+                <td> <a href="AlterarContato?id=<%=c.getId() %>&nome=<%=c.getNome() %>
+                        &nascimento=<%= stData %>&sexo=<%= c.getSexo() %>
+                        &&email=<%= c.getEmail() %>&telefone=<%= c.getTelefone() %>">
+                        Alterar</a></td>
             </tr>              
             <%} %>
 
