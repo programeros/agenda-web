@@ -21,7 +21,7 @@
             Data Nascimento: <input type="text" name="nascimento" value="${nascimento}"/><br /> 
             E-mail: <input type="text" name="email" value="${email}"> <br />
             Sexo:           
-                <Select id="selectSexo">
+                <Select id="selectSexo"  name="sexo">
                     <option value="1" >Masculino</option>
                     <option value="2">Feminino</option>
                     <script type="text/javascript">

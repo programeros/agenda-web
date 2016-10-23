@@ -1,7 +1,7 @@
-Sun Oct 23 08:05:19 BRST 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Sun Oct 23 15:17:09 BRST 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
-Sun Oct 23 08:05:19 BRST 2016:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0157-f100-6cef-0000351a0527
+Sun Oct 23 15:17:43 BRST 2016:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0157-f28b-c77f-0000351a0527
 no diretório de banco de dados C:\Desenv\agenda-web\src\bd\agendabd 
 
 java.vendor=Oracle Corporation

@@ -69,15 +69,13 @@ public class JDBCContatoDAO implements ContatoDAO{
     
     @Override
     public List<Contato> listarContatos() {
-
         List<Contato> contatos = new ArrayList<Contato>();
         
-        String sql = "SELECT * FROM TB_CONTATO";
-        
         try{
+            String sql = "SELECT * FROM TB_CONTATO";
             java.sql.Statement stmt = conexao.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            
+            ResultSet rs = stmt.executeQuery(sql); 
+                        
             while(rs.next()){
                 Contato contato = new Contato();
                 
@@ -109,7 +107,6 @@ public class JDBCContatoDAO implements ContatoDAO{
         }catch(Exception e){
             e.printStackTrace();
         }
-        
         return contatos;
     }
     
