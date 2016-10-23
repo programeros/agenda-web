@@ -6,5 +6,5 @@ import model.Contato;
 
 public interface ContatoDAO {
     public void inserir(Contato contato);
-    public List<Contato> listarTodos();
+    public List<Contato> listarContatos();
 }

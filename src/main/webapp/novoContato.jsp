@@ -8,7 +8,7 @@
     <body>
         <h1>Adiciona Contato</h1>
         <hr />
-        <form action ="InserirContato" method="post">
+        <form action ="AdicionarContato" method="post">
             Nome: <input type="text" name="nome" /><br />
             Data Nascimento: <input type="text" name="nascimento" /><br /> 
             E-mail: <input type="text" name="email" /><br />

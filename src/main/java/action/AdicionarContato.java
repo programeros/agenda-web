@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Contato;
 
-public class InserirContato extends HttpServlet {
+public class AdicionarContato extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -58,6 +58,7 @@ public class InserirContato extends HttpServlet {
         JDBCContatoDAO dao = new JDBCContatoDAO(conexao);
         dao.inserir(novoContato);
         
+        conn.fecharConexao();
     }
 
     @Override
