@@ -1,0 +1,8 @@
+{
+    "elements": {},
+    "attributes": {
+        "jquery(window).load(function($){dia();})": {
+            "context": "script"
+        }
+    }
+}

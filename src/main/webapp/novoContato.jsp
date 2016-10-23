@@ -6,7 +6,7 @@
         <title>Agenda de Contatos</title>
     </head>
     <body>
-        <h1>Adiciona Contato</h1>
+        <h1>Adicionar Contato</h1>
         <hr />
         <form action ="AdicionarContato" method="post">
             Nome: <input type="text" name="nome" /><br />
@@ -20,6 +20,7 @@
             Telefone: <input type="text" name="telefone" /><br />
 
             <input type="submit" value="Gravar" />
+            <input type="button" value="Voltar" onClick="history.go(-1)"> 
         </form>
     </body>
 </html>

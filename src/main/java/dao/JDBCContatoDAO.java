@@ -87,4 +87,21 @@ public class JDBCContatoDAO implements ContatoDAO{
         return contatos;
     }
     
+    public Contato Remove(Long id){
+
+        String sql = "DELETE FROM TB_CONTATO WHERE ID_CONTATO=?";
+
+        PreparedStatement p;
+        try {
+            p = this.conexao.prepareStatement(sql);
+            p.setLong(1,id);
+
+            p.execute();
+
+        } catch (SQLException e) {            
+            e.printStackTrace();
+        }
+        return null;
+
+    }   
 }

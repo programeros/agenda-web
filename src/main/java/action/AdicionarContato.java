@@ -59,6 +59,8 @@ public class AdicionarContato extends HttpServlet {
         dao.inserir(novoContato);
         
         conn.fecharConexao();
+        
+        response.sendRedirect("index.jsp");
     }
 
     @Override

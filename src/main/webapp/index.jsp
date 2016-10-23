@@ -1,16 +1,17 @@
-<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <%@page import="model.Contato"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.JDBCContatoDAO"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="dao.ConexaoBD"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <html>
     <head>
-        <title>Agenda de Contatos</title>
+        <title>Agenda de Contatos</title>    
     </head>
     <body>
         <h1>Lista de Contatos</h1>
+        <button onclick= "window.location.href = 'novoContato.jsp'">Adicionar</button>
         <hr />
         
         <%
@@ -25,7 +26,7 @@
 
         %>
         
-        <table id="tblContatos" border="2" cellPadding ="10">         
+        <table id="tblContatos" border="1" cellPadding ="10">         
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -33,7 +34,8 @@
                 <th>DT. Nascimento</th>
                 <th>E-mail</th>
                 <th>Telefone</th>
-                <th>DT. Cadastro</th>                                    
+                <th>DT. Cadastro</th>  
+                
             </tr>
             
             <% for(Contato c:contatos){
@@ -47,7 +49,8 @@
                 <td><%= stData %></td>
                 <td><%= c.getEmail() %></td>
                 <td><%= c.getTelefone() %></td>
-                <td><%= stCadastro %></td>                                  
+                <td><%= stCadastro %></td>  
+                <td> <a href="ExcluirContato?id=<%=c.getId() %>">Excluir</a></td>
             </tr>              
             <%} %>
 
