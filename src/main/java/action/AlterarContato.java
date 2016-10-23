@@ -4,7 +4,6 @@ package action;
 import dao.ConexaoBD;
 import dao.JDBCContatoDAO;
 import java.io.IOException;
-import static java.lang.System.out;
 import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,6 +35,12 @@ public class AlterarContato extends HttpServlet {
             String telefone = request.getParameter("telefone");
             String sexo = request.getParameter("sexo");
 		
+            if(sexo.trim().equals("Masculino")){
+                sexo = "1";
+            }else{
+                sexo = "2";
+            }
+            
             request.setAttribute("id", id);
             request.setAttribute("nome", nome);
             request.setAttribute("nascimento", nascimento);
